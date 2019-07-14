@@ -15,7 +15,7 @@ function enviarReceita () {
     receita, motivo, tipo, ingredientes, preparo
   }
   fetch(
-    'http://localhost:3036/receitas',
+    'https://receitinhaamor.herokuapp.com/',
     {
       method: 'POST',
       body: JSON.stringify(receitas),
@@ -29,7 +29,7 @@ function enviarReceita () {
 
 const Resultado = document.querySelector('#enviadas')
 
-fetch('http://localhost:3036/receitas')
+fetch('https://receitinhaamor.herokuapp.com/')
     .then (response =>{
         return response.json();
     })
@@ -64,7 +64,7 @@ fetch('http://localhost:3036/receitas')
             let link = document.createElement("a");
             link.setAttribute("class", "formBt");
             link.textContent = "Veja mais"
-            link.setAttribute("href", "https://www.uol.com.br/" )
+            link.setAttribute("href", "#" )
         
             btveja.appendChild(link);
         })
