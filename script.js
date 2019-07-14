@@ -15,7 +15,7 @@ function enviarReceita () {
     receita, motivo, tipo, ingredientes, preparo
   }
   fetch(
-    'https://receitinhaamor.herokuapp.com/',
+    'https://receitinhaamor.herokuapp.com/receitas/',
     {
       method: 'POST',
       body: JSON.stringify(receitas),
@@ -29,7 +29,7 @@ function enviarReceita () {
 
 const Resultado = document.querySelector('#enviadas')
 
-fetch('https://receitinhaamor.herokuapp.com/')
+fetch('https://receitinhaamor.herokuapp.com/receitas/')
     .then (response =>{
         return response.json();
     })
