@@ -14,6 +14,7 @@
         </button>
       </div>
       <div class="modal-body">
+
         ...
       </div>
       <div class="modal-footer">
@@ -23,3 +24,30 @@
     </div>
   </div>
 </div>
+
+
+
+fetch(`https://receitinhaamor.herokuapp.com/receitas/`${receitaShow._id})
+    .then (response =>{
+        return response.json();
+    })
+    .then(data => {
+        data.forEach(receitaShow => {
+          let tituloCard = document.querySelector("#tituloCard");
+          tituloCard.textContent = receitaShow.receita;
+
+          let ingredientesCard = document.querySelector(".conteudoIngredientes");
+          ingredientesCard.innerHTML = receitaShow.ingredientes;
+
+          let preparoCard = document.querySelector(".conteudoPreparo");
+          preparoCard.innerHTML = receitaShow.preparo;
+
+          let motivoCard = document.querySelector(".conteudoMotivo");
+          motivoCard.innerHTML = receitaShow.motivo;
+        
+
+        )}
+          )}
+
+
+           btveja.addEventListener("clique", id)

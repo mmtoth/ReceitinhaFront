@@ -52,24 +52,54 @@ fetch('https://receitinhaamor.herokuapp.com/receitas/')
             titulo.setAttribute("class", "textboxReceita")
             titulo.innerHTML = receitaShow.receita
 
-            let btveja = document.createElement('div');
-            btveja.setAttribute("class", "btenvio");
-            btveja.setAttribute("data-toggle", "modal");
-            btveja.setAttribute("data-target", "#ExemploModalCentralizado")
-            btveja.setAttribute("id", receitaShow._id)
-
             box.appendChild(tipo);
             box.appendChild(icon);
             box.appendChild(titulo);
-            box.appendChild(btveja);
 
-                        
+            let btveja = document.createElement('div');
+            btveja.setAttribute("class", "btenvio");
+            btveja.setAttribute("data-toggle", "modal");
+            btveja.setAttribute("data-target", "#ExemploModalCentralizado");
+            // btveja.setAttribute("data-id", receitaShow._id);
+
+            box.appendChild(btveja);
+            
             let link = document.createElement("a");
             link.setAttribute("class", "formBt");
             link.textContent = "Veja mais"
             link.setAttribute("href", "#receitas")
-        
+            link.setAttribute("data-id", receitaShow._id);
+            
             btveja.appendChild(link);
-        })
-        })
+
+            link.addEventListener("click", capturaId)
+            function capturaId (){
+              console.log (receitaShow._id);
+
+              fetch(`https://receitinhaamor.herokuapp.com/receitas/${receitaShow._id}`)
+              .then (response =>{
+                return response.json();
+            })
+             .then(data => {
+                    let tituloCard = document.querySelector("#tituloCard");
+                    tituloCard.innerHTML = `${data.receita}`;
+
+                    let ingredientesCard = document.querySelector(".conteudoIngredientes");
+                    ingredientesCard.innerHTML = `${data.ingredientes}`;
+
+                    let preparoCard = document.querySelector(".conteudoPreparo");
+                    preparoCard.innerHTML = `${data.preparo}`;
+
+                    let motivoCard = document.querySelector(".conteudoMotivo");
+                    motivoCard.innerHTML = `${data.motivo}`;
+               })
+              
+            }
+           } )}
+          )
+          
+          
+        
+            
+
 

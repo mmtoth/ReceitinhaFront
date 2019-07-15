@@ -87,3 +87,8 @@ h2{
 .row{
   margin: 0;
 }
+.conteudoMotivo{
+  font-size: .8rem;
+  font-style: italic;
+  text-align: right;
+}
