@@ -54,6 +54,9 @@ fetch('https://receitinhaamor.herokuapp.com/receitas/')
 
             let btveja = document.createElement('div');
             btveja.setAttribute("class", "btenvio");
+            btveja.setAttribute("data-toggle", "modal");
+            btveja.setAttribute("data-target", "#ExemploModalCentralizado")
+            btveja.setAttribute("id", receitaShow._id)
 
             box.appendChild(tipo);
             box.appendChild(icon);
@@ -64,8 +67,9 @@ fetch('https://receitinhaamor.herokuapp.com/receitas/')
             let link = document.createElement("a");
             link.setAttribute("class", "formBt");
             link.textContent = "Veja mais"
-            link.setAttribute("href", "#" )
+            link.setAttribute("href", "#receitas")
         
             btveja.appendChild(link);
         })
         })
+
